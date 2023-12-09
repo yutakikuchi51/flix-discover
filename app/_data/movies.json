@@ -3,30 +3,112 @@
       "id": "1h2GJKH12gkHG31h1H",
       "name": "Legend",
       "year": 2015,
-      "genre": "Crime"
+      "genre": "Crime",
+      "trailer": "https://www.youtube.com/watch?v=Nhgjqbq_zYA",
+      "thumbnail": "https://i.ytimg.com/vi/Nhgjqbq_zYA/maxresdefault.jpg"
     },
     {
       "id": "2KJH3k2j3H1k2J3K1H",
       "name": "The Devil All the Time",
       "year": 2020,
-      "genre": "Thriller"
+      "genre": "Thriller",
+      "trailer": "https://www.youtube.com/watch?v=Nhgjqbq_zYA",
+      "thumbnail": "https://i.ytimg.com/vi/Nhgjqbq_zYA/maxresdefault.jpg"
     },
     {
       "id": "3h2KJH3k2j3H1k2J3",
       "name": "Rio",
       "year": 2011,
-      "genre": "Adventure"
+      "genre": "Adventure",
+      "trailer": "https://www.youtube.com/watch?v=Nhgjqbq_zYA",
+      "thumbnail": "https://i.ytimg.com/vi/Nhgjqbq_zYA/maxresdefault.jpg"
     },
     {
       "id": "4k2J3K1H2GJKH12gk",
       "name": "Hauru no ugoku shiro",
       "year": 2004,
-      "genre": "Animation"
+      "genre": "Animation",
+      "trailer": "https://www.youtube.com/watch?v=Nhgjqbq_zYA",
+      "thumbnail": "https://i.ytimg.com/vi/Nhgjqbq_zYA/maxresdefault.jpg"
     },
     {
       "id": "5H1h1H2KJH3k2j3H",
       "name": "Lawrence of Arabia",
       "year": 1962,
-      "genre": "War"
+      "genre": "War",
+      "trailer": "https://www.youtube.com/watch?v=Nhgjqbq_zYA",
+      "thumbnail": "https://i.ytimg.com/vi/Nhgjqbq_zYA/maxresdefault.jpg"
+    },
+    {
+      "id": "6H1k2J3K1H2GJKH1",
+      "name": "Avengers: Endgame",
+      "year": 2019,
+      "genre": "Adventure",
+      "trailer": "https://www.youtube.com/watch?v=Nhgjqbq_zYA",
+      "thumbnail": "https://i.ytimg.com/vi/Nhgjqbq_zYA/maxresdefault.jpg"
+    },
+    {
+      "id": "7gkHG31h1H2KJH3k",
+      "name": "7 Yards: The Chris Norton Story",
+      "year": 2021,
+      "genre": "Documentary",
+      "trailer": "https://www.youtube.com/watch?v=Nhgjqbq_zYA",
+      "thumbnail": "https://i.ytimg.com/vi/Nhgjqbq_zYA/maxresdefault.jpg"
+    },
+    {
+      "id": "8j3H1k2J3K1H2GJK",
+      "name": "The Year Earth Changed",
+      "year": 2021,
+      "genre": "Documentary",
+      "trailer": "https://www.youtube.com/watch?v=Nhgjqbq_zYA",
+      "thumbnail": "https://i.ytimg.com/vi/Nhgjqbq_zYA/maxresdefault.jpg"
+    },
+    {
+      "id": "9H12gkHG31h1H2KJ",
+      "name": "Seaspiracy",
+      "year": 2021,
+      "genre": "Documentary",
+      "trailer": "https://www.youtube.com/watch?v=Nhgjqbq_zYA",
+      "thumbnail": "https://i.ytimg.com/vi/Nhgjqbq_zYA/maxresdefault.jpg"
+    },
+    {
+      "id": "10H3k2j3H1k2J3K1",
+      "name": "The Girl with the Dragon Tattoo",
+      "year": 2011,
+      "genre": "Thriller",
+      "trailer": "https://www.youtube.com/watch?v=Nhgjqbq_zYA",
+      "thumbnail": "https://i.ytimg.com/vi/Nhgjqbq_zYA/maxresdefault.jpg"
+    },
+    {
+      "id": "3h2KJH3k2j3H1k2J4",
+      "name": "Rio",
+      "year": 2011,
+      "genre": "Adventure",
+      "trailer": "https://www.youtube.com/watch?v=Nhgjqbq_zYA",
+      "thumbnail": "https://i.ytimg.com/vi/Nhgjqbq_zYA/maxresdefault.jpg"
+    },
+    {
+      "id": "3h2KJH3k2j3H1k2J5",
+      "name": "Rio",
+      "year": 2011,
+      "genre": "Adventure",
+      "trailer": "https://www.youtube.com/watch?v=Nhgjqbq_zYA",
+      "thumbnail": "https://i.ytimg.com/vi/Nhgjqbq_zYA/maxresdefault.jpg"
+    },
+    {
+      "id": "3h2KJH3k2j3H1k2J6",
+      "name": "Rio",
+      "year": 2011,
+      "genre": "Adventure",
+      "trailer": "https://www.youtube.com/watch?v=Nhgjqbq_zYA",
+      "thumbnail": "https://i.ytimg.com/vi/Nhgjqbq_zYA/maxresdefault.jpg"
+    },
+    {
+      "id": "3h2KJH3k2j3H1k2J7",
+      "name": "Rio",
+      "year": 2011,
+      "genre": "Adventure",
+      "trailer": "https://www.youtube.com/watch?v=Nhgjqbq_zYA",
+      "thumbnail": "https://i.ytimg.com/vi/Nhgjqbq_zYA/maxresdefault.jpg"
     }
 ]    
