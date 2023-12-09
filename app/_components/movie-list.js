@@ -24,8 +24,8 @@ export default function MovieList() {
                 <p>Adventure</p>
                 <div className="flex overflow-x-auto py-4">
                     {AdventureMovies.map((movie) => (
-                        <div className="flex-none">
-                        <MovieCard key={movie.id} movie={movie} />
+                        <div  key={movie.id}>
+                        <MovieCard movie={movie} />
                         </div>
                     ))}
                 </div>
@@ -34,8 +34,8 @@ export default function MovieList() {
                 <p>Thriller</p>
                 <div className="flex overflow-x-auto py-4">
                     {ThrillerMovies.map((movie) => (
-                        <div className="flex-none">
-                        <MovieCard key={movie.id} movie={movie} />
+                        <div key={movie.id}>
+                        <MovieCard movie={movie} />
                         </div>
                     ))}
                 </div>
@@ -44,8 +44,8 @@ export default function MovieList() {
                 <p>Crime</p>
                 <div className="flex overflow-x-auto py-4">
                     {CrimeMovies.map((movie) => (
-                        <div className="flex-none">
-                        <MovieCard key={movie.id} movie={movie} />
+                        <div key={movie.id}>
+                        <MovieCard movie={movie} />
                         </div>
                     ))}
                 </div>
@@ -54,8 +54,8 @@ export default function MovieList() {
                 <p>Animation</p>
                 <div className="flex overflow-x-auto py-4">
                     {AnimationMovies.map((movie) => (
-                        <div className="flex-none">
-                        <MovieCard key={movie.id} movie={movie} />
+                        <div key={movie.id}>
+                        <MovieCard movie={movie} />
                         </div>
                     ))}
                 </div>
@@ -64,8 +64,8 @@ export default function MovieList() {
                 <p>Documentary</p>
                 <div className="flex overflow-x-auto py-4">
                     {DocumentaryMovies.map((movie) => (
-                        <div className="flex-none">
-                        <MovieCard key={movie.id} movie={movie} />
+                        <div key={movie.id}>
+                        <MovieCard movie={movie} />
                         </div>
                     ))}
                 </div>

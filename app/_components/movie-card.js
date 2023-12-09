@@ -1,4 +1,6 @@
 // display movie info (like "Item component")
+import Image from 'next/image';
+
 export default function MovieCard({ movie }) {
     const getYouTubeId = (url) => {
       if (!url) return null; 
@@ -15,7 +17,12 @@ export default function MovieCard({ movie }) {
     return (
         <div className="mx-4 my-4 w-80 h-80 bg-blueGray-600 rounded-2xl">
             {movie.thumbnail && (
-            <img src={movie.thumbnail} alt={`Thumbnail of ${movie.name}`} />
+            <Image 
+                src={movie.thumbnail} 
+                alt={`Thumbnail of ${movie.name}` }
+                width={320}
+                height={180}
+                layout="responsive" />
             )}
             <h3>{movie.name}</h3>
             <p>{movie.year}</p>
