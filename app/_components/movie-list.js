@@ -2,10 +2,21 @@
 
 import MovieCard from "./movie-card";
 import moviesData from "../_data/movies.json"
+import { useState } from "react";
 
 export default function MovieList() {
 
-    //let moviesArray = moviesData.map((movie) => ({...movie}));
+    const [selectedCategory, setSelectedCategory] = useState("Adventure");
+    const genres = ["Adventure", "Thriller", "Crime", "Animation", "Documentary"];
+
+    const getMovies = () => {
+        return selectedCategory ? moviesData.filter((movie) => movie.genre === selectedCategory) : [];
+      };
+
+    const handleGenreSelect = (event) => {
+        setSelectedCategory(event.target.value);
+    };
+
     const Adventure = "Adventure";
     const Thriller = "Thriller";
     const Crime = "Crime";
@@ -21,6 +32,30 @@ export default function MovieList() {
     return (
         <div>
             <div>
+                <select onChange={handleGenreSelect} className="rounded">
+                    <option value="Adventure">Adventure</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Crime">Crime</option>
+                    <option value="Animation">Animation</option>
+                    <option value="Documentary">Documentary</option>
+                </select>
+            </div>
+            <div>
+                {selectedCategory && (
+                    <div>
+                        <div className="flex overflow-x-auto py-4">
+                            {getMovies().map((movie) => (
+                                <div key={movie.id}>
+                                    <MovieCard movie={movie} />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
+            </div>
+
+            {selectedCategory !== "Adventure" && (
+            <div>
                 <p>Adventure</p>
                 <div className="flex overflow-x-auto py-4">
                     {AdventureMovies.map((movie) => (
@@ -30,6 +65,9 @@ export default function MovieList() {
                     ))}
                 </div>
             </div>
+            )}
+
+            {selectedCategory !== "Thriller" && (
             <div>
                 <p>Thriller</p>
                 <div className="flex overflow-x-auto py-4">
@@ -40,6 +78,9 @@ export default function MovieList() {
                     ))}
                 </div>
             </div>
+            )}
+
+            {selectedCategory !== "Crime" && (
             <div>
                 <p>Crime</p>
                 <div className="flex overflow-x-auto py-4">
@@ -50,6 +91,9 @@ export default function MovieList() {
                     ))}
                 </div>
             </div>
+            )}
+
+            {selectedCategory !== "Animation" && (
             <div>
                 <p>Animation</p>
                 <div className="flex overflow-x-auto py-4">
@@ -60,6 +104,9 @@ export default function MovieList() {
                     ))}
                 </div>
             </div>
+            )}
+
+            {selectedCategory !== "Documentary" && (            
             <div>
                 <p>Documentary</p>
                 <div className="flex overflow-x-auto py-4">
@@ -70,6 +117,7 @@ export default function MovieList() {
                     ))}
                 </div>
             </div>
+            )}
         </div>
     )
 }

@@ -15,7 +15,7 @@ export default function MovieCard({ movie }) {
     const videoId = movie.trailer ? getYouTubeId(movie.trailer) : null;
   
     return (
-        <div className="mx-4 my-4 w-80 h-80 bg-blueGray-600 rounded-2xl">
+        <div className="mx-4 my-4 w-60 h-60 bg-blueGray-600 rounded-2xl">
             {movie.thumbnail && (
             <Image 
                 src={movie.thumbnail} 
