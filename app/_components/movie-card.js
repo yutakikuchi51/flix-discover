@@ -1,7 +1,12 @@
 // display movie info (like "Item component")
 import Image from 'next/image';
+import { useState } from "react";
+import MovieModal from './movie-modal';
 
 export default function MovieCard({ movie }) {
+
+    const [modalOpen, setModalOpen] = useState(false);
+
     const getYouTubeId = (url) => {
       if (!url) return null; 
   
@@ -11,11 +16,18 @@ export default function MovieCard({ movie }) {
       return (match && match[2].length === 11) ? match[2] : null;
     };
   
-
     const videoId = movie.trailer ? getYouTubeId(movie.trailer) : null;
+
+    const handleMovieCardClick = () => {
+    setModalOpen(true);
+    };
+
+    const handleCloseModal = () => {
+    setModalOpen(false);
+    };
   
     return (
-        <div className="mx-4 my-4 w-60 h-60 bg-blueGray-600 rounded-2xl">
+        <div onClick={handleMovieCardClick} className="mx-4 my-4 w-60 h-60 bg-blueGray-600 rounded-2xl">
             {movie.thumbnail && (
             <Image 
                 src={movie.thumbnail} 
@@ -32,7 +44,14 @@ export default function MovieCard({ movie }) {
                 Watch Trailer
             </a>
             )}
+            {modalOpen && (
+            <MovieModal movie={movie} onClose={handleCloseModal} />
+            )}
         </div>
+        
     );
+
+    
+      
   }
   

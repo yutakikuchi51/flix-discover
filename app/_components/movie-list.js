@@ -6,8 +6,8 @@ import { useState } from "react";
 
 export default function MovieList() {
 
-    const [selectedCategory, setSelectedCategory] = useState("Adventure");
-    const genres = ["Adventure", "Thriller", "Crime", "Animation", "Documentary"];
+    const [selectedCategory, setSelectedCategory] = useState(null);
+    //const [modalOpen, setModalOpen] = useState(false);
 
     const getMovies = () => {
         return selectedCategory ? moviesData.filter((movie) => movie.genre === selectedCategory) : [];
@@ -28,6 +28,15 @@ export default function MovieList() {
     const AnimationMovies = moviesData.filter((movie) => movie.genre === Animation);
     const DocumentaryMovies = moviesData.filter((movie) => movie.genre === Documentary);
 
+    // const handleMovieCardClick = (movie) => {
+    //     setClickedMovie(movie);
+    //     setModalOpen(true);
+    // };
+
+    // const handleCloseModal = () => {
+    //     setIsModalOpen(false);
+    //     setSelectedMovie(null);
+    // };
 
     return (
         <div>
@@ -59,7 +68,7 @@ export default function MovieList() {
                 <p>Adventure</p>
                 <div className="flex overflow-x-auto py-4">
                     {AdventureMovies.map((movie) => (
-                        <div  key={movie.id}>
+                        <div  key={movie.id} >
                         <MovieCard movie={movie} />
                         </div>
                     ))}
