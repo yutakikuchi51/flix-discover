@@ -1,57 +1,79 @@
-// display movie info (like "Item component")
 import Image from 'next/image';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import MovieModal from './movie-modal';
 
-export default function MovieCard({ movie }) {
+const movieCache = {};
 
+export default function MovieCard({ movieId }) {
     const [modalOpen, setModalOpen] = useState(false);
+    const [movieDetails, setMovieDetails] = useState(null);
 
-    const getYouTubeId = (url) => {
-      if (!url) return null; 
-  
-      const regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-      const match = url.match(regExp);
-    
-      return (match && match[2].length === 11) ? match[2] : null;
-    };
-  
-    const videoId = movie.trailer ? getYouTubeId(movie.trailer) : null;
+    console.log(movieId);
+
+    useEffect(() => {
+        const fetchMovieDetails = async () => {
+            if (movieCache[movieId]) {
+                setMovieDetails(movieCache[movieId]);
+                return;
+            }
+
+            const url = `https://moviesminidatabase.p.rapidapi.com/movie/id/${movieId}/`;
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': 'd2738eb68emsh51d3a3d23fd7760p15abb2jsna0a8694d167c',
+		            'X-RapidAPI-Host': 'moviesminidatabase.p.rapidapi.com'
+                }
+            };
+
+            try {
+                const response = await fetch(url, options);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                movieCache[movieId] = data.results;
+                setMovieDetails(data.results);
+            } catch (error) {
+                console.error('Fetch error: ', error);
+            }
+        };
+
+        fetchMovieDetails();
+    }, [movieId]);
+
+    if (!movieDetails) {
+        return <div>Loading...</div>;
+    }
 
     const handleMovieCardClick = () => {
-    setModalOpen(true);
+        setModalOpen(true);
     };
 
     const handleCloseModal = () => {
-    setModalOpen(false);
+        setModalOpen(false);
     };
+
+    console.log(movieDetails);
   
     return (
         <div onClick={handleMovieCardClick} className="mx-4 my-4 w-60 h-60 bg-blueGray-600 rounded-2xl">
-            {movie.thumbnail && (
+            {movieDetails && movieDetails.image_url && (
             <Image 
-                src={movie.thumbnail} 
-                alt={`Thumbnail of ${movie.name}` }
-                width={320}
-                height={180}
-                layout="responsive" />
+            src={movieDetails.image_url} 
+            alt={`Thumbnail of ${movieDetails.title}`}
+            width={40}
+            height={30}
+            layout="responsive"
+            />
             )}
-            <h3>{movie.name}</h3>
-            <p>{movie.year}</p>
-            <p>{movie.genre}</p> 
-            {videoId && (
-            <a href={`https://www.youtube.com/watch?v=${videoId}`} target="_blank" rel="noopener noreferrer">
-                Watch Trailer
-            </a>
-            )}
+            <h3>{movieDetails.title}</h3>
+            <p>{movieDetails.year}</p>
+            <p>{movieDetails.movie_length} min</p>
+            <p>{movieDetails.rating}</p>
             {modalOpen && (
-            <MovieModal movie={movie} onClose={handleCloseModal} />
+                <MovieModal movie={movieDetails} onClose={handleCloseModal} />
             )}
         </div>
-        
     );
-
-    
-      
-  }
-  
+}
