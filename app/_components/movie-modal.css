@@ -12,9 +12,26 @@
   }
   
   .modal-content {
-    background-color: white;
+    width: 500px;
+    height: 350px;
+    background-color: #546E7A;
     padding: 20px;
     border-radius: 5px;
-    text-align: center;
+    border-color: #ffffff;
+    border-width: 2px;
   }
-  
+  .container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .trailer-button {
+    background-color: gray;
+    padding: 15px;
+    border-radius: 10px;
+  }
+  .close {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+  }

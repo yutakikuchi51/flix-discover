@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import MovieCard from "./movie-card";
+import './genre-movie-list.css'
 
 export default function GenreMovieList({genre}) {
     const [movies, setMovies] = useState([]);
+    const [startIndex, setStartIndex] = useState(0);
 
     useEffect(() => {
-        // APIからジャンルに基づいた映画のリストを取得
         const fetchMoviesByGenre = async () => {
             const url = `https://moviesminidatabase.p.rapidapi.com/movie/byGen/${genre}/`;
             const options = {
@@ -31,18 +32,29 @@ export default function GenreMovieList({genre}) {
         fetchMoviesByGenre();
     }, [genre]);
 
-    // 最初の2つの映画IDのみを取り出す
-    const firstTwoMovies = movies.slice(0, 2);
+    const handleNextClick = () => {
+        setStartIndex(prevIndex => Math.min(prevIndex + 3, movies.length - 3));
+    };
 
+    const handlePrevClick = () => {
+        setStartIndex(prevIndex => Math.max(prevIndex - 3, 0));
+    };
+
+    const currentMovies = movies.slice(startIndex, startIndex + 3);
     return (
-        <div>
-            <p>{genre}</p>
-            <div className="flex overflow-x-auto py-4">
-                {firstTwoMovies.map(movie => (
+        <div style={{ height: '100vh', backgroundColor: '#1E293B'}}>
+            <div className="horizontal-list">
+                
+                {currentMovies.map(movie => (
                     <div key={movie.imdb_id}>
                         <MovieCard movieId={movie.imdb_id} />
                     </div>
                 ))}
+                
+            </div>
+            <div className="button-container">
+                <button onClick={handlePrevClick} className="prev-button">Prev</button>
+                <button onClick={handleNextClick} className="next-button">Next</button>
             </div>
         </div>
     );

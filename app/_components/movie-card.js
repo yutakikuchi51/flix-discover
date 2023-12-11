@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { useState, useEffect } from "react";
 import MovieModal from './movie-modal';
+import './movie-card.css';
 
 const movieCache = {};
 
@@ -8,7 +9,6 @@ export default function MovieCard({ movieId }) {
     const [modalOpen, setModalOpen] = useState(false);
     const [movieDetails, setMovieDetails] = useState(null);
 
-    console.log(movieId);
 
     useEffect(() => {
         const fetchMovieDetails = async () => {
@@ -57,20 +57,24 @@ export default function MovieCard({ movieId }) {
     console.log(movieDetails);
   
     return (
-        <div onClick={handleMovieCardClick} className="mx-4 my-4 w-60 h-60 bg-blueGray-600 rounded-2xl">
-            {movieDetails && movieDetails.image_url && (
-            <Image 
-            src={movieDetails.image_url} 
-            alt={`Thumbnail of ${movieDetails.title}`}
-            width={40}
-            height={30}
-            layout="responsive"
-            />
-            )}
-            <h3>{movieDetails.title}</h3>
-            <p>{movieDetails.year}</p>
-            <p>{movieDetails.movie_length} min</p>
-            <p>{movieDetails.rating}</p>
+        <div onClick={handleMovieCardClick} className='movie-card'>
+            <div className='card-left'>
+                {movieDetails && movieDetails.image_url && (
+                <Image 
+                src={movieDetails.image_url} 
+                alt={`Thumbnail of ${movieDetails.title}`}
+                width={200}
+                height={250}
+                layout="fixed"
+                />
+                )}
+            </div>
+            <div className='card-right'>
+                <div className='title'>{movieDetails.title}</div>
+                <div>{movieDetails.year}</div>
+                <div>{movieDetails.movie_length} min</div>
+                <div>{movieDetails.rating}/10</div>
+            </div>
             {modalOpen && (
                 <MovieModal movie={movieDetails} onClose={handleCloseModal} />
             )}

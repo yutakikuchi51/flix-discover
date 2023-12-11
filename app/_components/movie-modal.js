@@ -5,10 +5,16 @@ export default function MovieModal({movie, onClose}){
         <div className="modal" onClick={(e) => e.stopPropagation()}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <h2>{movie.name}</h2>
-                <p>{movie.year}</p>
                 <p>{movie.genre}</p>
-                <p>{movie.description}</p>
-                <button onClick={onClose}>Close</button>
+                <p>{movie.plot}</p>
+                <div className='container'>
+                    {movie.trailer && (
+                    <a href={movie.trailer} target="_blank" rel="noopener noreferrer" className="trailer-button">
+                        Watch Trailer
+                    </a>
+                    )}
+                    <button className="close" onClick={onClose}>Close</button>
+                </div>
             </div>
         </div>
     );

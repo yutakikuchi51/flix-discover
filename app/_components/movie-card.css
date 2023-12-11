@@ -1,0 +1,27 @@
+.movie-card {
+    height: 270px;
+    width: 355px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 20px 0 20px;
+    padding: 20px;
+    background-color: #546E7A;
+    border-radius: 20px;
+    border-width: 2px;
+    border-color: #ffffff;
+
+}
+.card-left {
+    flex: 1;
+}
+.card-right {
+    margin-left: 10px;
+    flex: 1;
+}
+.title {
+    margin-top: 30px;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: x-large;
+}
