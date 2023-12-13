@@ -1,0 +1,16 @@
+.header-container {
+    padding: 10px 20px 10px 20px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #546E7A;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+}
+.header {
+    font-family: 'ConcertOne', sans-serif;
+    font-size:xx-large;
+    color: #ffffff;
+}

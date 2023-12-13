@@ -16,11 +16,11 @@ export default function MovieList() {
 
     return (
         <div style={{ height: '100vh' }}>
+            <div className="message-container">
+                <div className="message">Find your movie by genre!</div>
+            </div>
             <div className="select-container">
-                <div className="spacer"></div>
-                <div>
                     <select onChange={handleGenreSelect} className="select-genre">
-                        <option value="">Find Your Movie by Genre!</option>
                         <option value="Adventure">Adventure</option>
                         <option value="Animation">Animation</option>
                         <option value="Crime">Crime</option>
@@ -37,11 +37,7 @@ export default function MovieList() {
                         <option value="Thriller">Thriller</option>
                         <option value="War">War</option>
                         <option value="Western">Western</option>
-                    </select>
-                </div>
-                <div className="search">
-                    
-                </div>
+                    </select>                  
             </div>
             <div style={{ height: '100vh' }}>
             {selectedCategory && <GenreMovieList genre={selectedCategory} />}

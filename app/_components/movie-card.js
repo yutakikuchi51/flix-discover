@@ -55,6 +55,12 @@ export default function MovieCard({ movieId }) {
     };
 
     console.log(movieDetails);
+
+    function formatMovieLength(minutes) {
+        const hours = Math.floor(minutes / 60);
+        const remainingMinutes = minutes % 60;
+        return `${hours}h ${remainingMinutes}min`;
+    }
   
     return (
         <div onClick={handleMovieCardClick} className='movie-card'>
@@ -71,9 +77,21 @@ export default function MovieCard({ movieId }) {
             </div>
             <div className='card-right'>
                 <div className='title'>{movieDetails.title}</div>
-                <div>{movieDetails.year}</div>
-                <div>{movieDetails.movie_length} min</div>
-                <div>{movieDetails.rating}/10</div>
+                <div className='year'>{movieDetails.year}</div>
+                <div className='movie-length'>{formatMovieLength(movieDetails.movie_length)}</div>
+                <div className='rating'>
+                    <Image
+                    src="/_images/star.png"
+                    alt="star icon"
+                    width={23}
+                    height={10}
+                    layout="fixed"
+                    className='star'/> 
+                    <div className='rate-num'>
+                        {movieDetails.rating}
+                    </div>
+                    <div className='outOf'>/10</div>
+                </div>
             </div>
             {modalOpen && (
                 <MovieModal movie={movieDetails} onClose={handleCloseModal} />
