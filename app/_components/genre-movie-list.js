@@ -42,7 +42,7 @@ export default function GenreMovieList({genre}) {
 
     const currentMovies = movies.slice(startIndex, startIndex + 3);
     return (
-        <div style={{ height: '100vh', backgroundColor: '#1E293B'}}>
+        <div style={{ height: '426.4px', backgroundColor: '#1E293B'}}>
             <div className="horizontal-list">
                 
                 {currentMovies.map(movie => (

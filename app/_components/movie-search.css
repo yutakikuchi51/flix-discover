@@ -1,0 +1,27 @@
+.search-container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+.search-bar {
+    height: 40px;
+    width: 300px;
+    border-radius: 50px;
+    font-weight: 400;
+    font-family: 'ConcertOne', sans-serif;
+    text-align: center;
+    font-size: larger;
+    background-color: rgb(225, 225, 225);
+}
+.search-button {
+    margin-left: 15px;
+    height: 35px;
+    width: 65px;
+    font-family: 'ConcertOne', sans-serif;
+    color: #ffffff;
+    background-color: #546E7A;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color: #ffffff;
+}

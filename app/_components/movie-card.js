@@ -9,6 +9,7 @@ export default function MovieCard({ movieId }) {
     const [modalOpen, setModalOpen] = useState(false);
     const [movieDetails, setMovieDetails] = useState(null);
 
+    console.log("what do u see?", movieId);
 
     useEffect(() => {
         const fetchMovieDetails = async () => {

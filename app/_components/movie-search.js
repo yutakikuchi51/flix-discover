@@ -1,13 +1,14 @@
-"use client"
+"use client";
 import { useState } from "react";
 import MovieCard from "./movie-card";
-import './genre-movie-list.css'
+import './genre-movie-list.css';
+import './movie-search.css';
 
 export default function SearchMovie() {
     const [inputValue, setInputValue] = useState("");
     const [movieIds, setMovieIds] = useState([]);
     const [startIndex, setStartIndex] = useState(0);
-
+    const [searchPerformed, setSearchPerformed] = useState(false);
     const handleSearch = async () => {
         const url = `https://moviesminidatabase.p.rapidapi.com/movie/imdb_id/byTitle/${inputValue}/`;
         const options = {
@@ -24,10 +25,8 @@ export default function SearchMovie() {
                 throw new Error('Network response was not ok');
             }
             const data = await response.json();
-            console.log("API Response:", data);
-            const ids = data.results.map(movie => movie.imdb_id);
-            console.log("Movie IDs:", ids); 
-            setMovieIds(ids);
+            setMovieIds(data.results);
+            setSearchPerformed(true); 
         } catch (error) {
             console.error('Fetch error: ', error);
         }
@@ -45,24 +44,27 @@ export default function SearchMovie() {
 
     return (
         <div>
-            <input 
-                type="text" 
-                placeholder="Search your movie by name"
-                onChange={(event) => setInputValue(event.target.value)}
-            />
-            <button onClick={handleSearch}>Search</button>
-            <div>
-                {currentMovieIds.map((movie) => (
+            <div className="search-container">
+                <input 
+                    type="text" 
+                    placeholder="Search your movie by name"
+                    onChange={(event) => setInputValue(event.target.value)}
+                    className="search-bar"
+                />
+                <button onClick={handleSearch} className="search-button">Search</button>
+            </div>
+            <div className="horizontal-list">
+                {currentMovieIds.map(movie => (
                     <div key={movie.imdb_id}>
                         <MovieCard movieId={movie.imdb_id} />
                     </div>
                 ))}
             </div>
-            {startIndex > 0 && (
-                <button onClick={handlePrevClick}>Prev</button>
-            )}
-            {startIndex + 3 < movieIds.length && (
-                <button onClick={handleNextClick}>Next</button>
+            {searchPerformed && (
+                <div className="button-container">
+                    <button onClick={handlePrevClick} className="prev-button">Prev</button>
+                    <button onClick={handleNextClick} className="next-button">Next</button>
+                </div>
             )}
         </div>
     );
