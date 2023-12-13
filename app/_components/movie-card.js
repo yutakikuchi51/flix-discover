@@ -75,6 +75,7 @@ export default function MovieCard({ movieId }) {
                 layout="fixed"
                 />
                 )}
+                <div className='details'>Click to see details</div>
             </div>
             <div className='card-right'>
                 <div className='title'>{movieDetails.title}</div>

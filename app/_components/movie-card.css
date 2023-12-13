@@ -47,3 +47,9 @@
 .star {
     margin-right: 5px;
 }
+.details {
+    font-size: small;
+    margin-top: 10px;
+    font-family: 'ConcertOne', sans-serif;
+    color:#dcdbdb;
+}
